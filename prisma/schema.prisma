@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://dbconnector:Marte_2008@localhost:3306/modha"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model tb_Challenges {
+  Id     Int    @id @default(autoincrement())
+  UId    String
+  Phone  String
+  Client String
+  Token  String
+  Status String
+}
+
+model tb_clients {
+  Id      Int    @id @default(autoincrement())
+  ApiKey  String
+  Secret  String
+  Version String
+}
+
+model tb_clientInformation {
+  Id            Int    @id @default(autoincrement())
+  Name          String
+  Phone         String
+  Email         String
+  Password      String
+  AccountType   String
+  MainAccountId Int
+  Role          String
+}
+
+model tb_ClientServices {
+  Id        Int @id @default(autoincrement())
+  ServiceId Int
+  Status    Int
+}
